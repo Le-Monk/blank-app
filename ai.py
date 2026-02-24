@@ -1,14 +1,15 @@
 from openai import OpenAI
 import base64
+import os
 
 SYSTEM_PROMPT = """
 Your job is to take an image URL and analyze it, describing key details from the image. 
 """
 
-
+api_key = os.getenv("OPENAI_API_KEY")
 
 CLIENT = OpenAI(
-    api_key = "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"
+    api_key = api_key
 )
 chat_history = [
     {"role": "system", "content": SYSTEM_PROMPT},
